@@ -12,8 +12,15 @@
   var player1roll = getRandomInt(1, 6);
   var player2roll = getRandomInt(1, 6);
 
-  var die1 = document.querySelector(".player1");
-  die1.src = diefaces[player1roll - 1];
+document.querySelector(".player1").src = diefaces[player1roll - 1];
+document.querySelector(".player2").src = diefaces[player2roll - 1];
 
-  var die2 = document.querySelector(".player2");
-  die2.src = diefaces[player2roll - 1];
+if (player1roll == player2roll) {
+  document.querySelector(".result").innerText = "It's a tie";
+}
+else if (player1roll > player2roll) {
+  document.querySelector(".result").innerText = "Player 1 wins";
+}
+else if (player1roll < player2roll) {
+  document.querySelector(".result").innerText = "Player 2 Wins";
+}
